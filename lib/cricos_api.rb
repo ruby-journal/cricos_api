@@ -1,5 +1,5 @@
 require 'lotus/model'
-require 'lotus/mailer'
+
 Dir["#{ __dir__ }/cricos_api/**/*.rb"].each { |file| require_relative file }
 
 Lotus::Model.configure do
@@ -43,16 +43,5 @@ Lotus::Model.configure do
     #   attribute :id,   Integer
     #   attribute :name, String
     # end
-  end
-end.load!
-
-Lotus::Mailer.configure do
-  root "#{ __dir__ }/cricos_api/mailers"
-
-  # See http://lotusrb.org/guides/mailers/delivery
-  delivery do
-    development :test
-    test        :test
-    # production :stmp, address: ENV['SMTP_PORT'], port: 1025
   end
 end.load!
