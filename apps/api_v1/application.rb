@@ -17,7 +17,6 @@ module ApiV1
       #
       load_paths << [
         'controllers',
-        'views'
       ]
 
       # Handle exceptions with HTTP statuses (true) or don't catch them (false).
@@ -51,30 +50,6 @@ module ApiV1
       #
       # port 443
 
-      # Enable cookies
-      # Argument: boolean to toggle the feature
-      #           A Hash with options
-      #
-      # Options: :domain   - The domain (String - nil by default, not required)
-      #          :path     - Restrict cookies to a relative URI (String - nil by default)
-      #          :max_age  - Cookies expiration expressed in seconds (Integer - nil by default)
-      #          :secure   - Restrict cookies to secure connections
-      #                      (Boolean - Automatically set on true if currenlty using a secure connection)
-      #                      See #scheme and #ssl?
-      #          :httponly - Prevent JavaScript access (Boolean - true by default)
-      #
-      # cookies true
-      # or
-      # cookies max_age: 300
-
-      # Enable sessions
-      # Argument: Symbol the Rack session adapter
-      #           A Hash with options
-      #
-      # See: http://www.rubydoc.info/gems/rack/Rack/Session/Cookie
-      #
-      # sessions :cookie, secret: ENV['API_V1_SESSIONS_SECRET']
-
       # Configure Rack middleware for this application
       #
       # middleware.use Rack::Protection
@@ -87,14 +62,14 @@ module ApiV1
       # Default format for responses that doesn't take into account the request format
       # Argument: A symbol representation of a mime type, default to :html
       #
-      # default_response_format :html
+      default_response_format :html
 
       # HTTP Body parsers
       # Parse non GET responses body for a specific mime type
       # Argument: Symbol, which represent the format of the mime type (only `:json` is supported)
       #           Object, the parser
       #
-      # body_parsers :json
+      body_parsers :json
 
       # When it's true and the router receives a non-encrypted request (http),
       # it redirects to the secure equivalent resource (https). Default disabled.
@@ -107,22 +82,11 @@ module ApiV1
 
       # The layout to be used by all views
       #
-      layout :application # It will load ApiV1::Views::ApplicationLayout
+      # layout :application # It will load ApiV1::Views::ApplicationLayout
 
       # The relative path to templates
       #
-      templates 'templates'
-
-      ##
-      # ASSETS
-      #
-
-      # Specify sources for assets
-      # The directory `public/` is added by default
-      #
-      # assets << [
-      #   'vendor/javascripts'
-      # ]
+      # templates 'templates'
 
       # Enabling serving assets
       # Defaults to false
@@ -191,14 +155,6 @@ module ApiV1
         # include MyAuthentication # included in all the actions
         # before :authenticate!    # run an authentication before callback
       end
-
-      # Configure the code that will yield each time ApiV1::View is included
-      # This is useful for sharing common functionality
-      #
-      # See: http://www.rubydoc.info/gems/lotus-view#Configuration
-      view.prepare do
-        include Lotus::Helpers
-      end
     end
 
     ##
@@ -209,7 +165,7 @@ module ApiV1
       handle_exceptions false
 
       # Serve static assets during development
-      serve_assets      true
+      serve_assets      false
     end
 
     ##
@@ -220,7 +176,7 @@ module ApiV1
       handle_exceptions false
 
       # Serve static assets during development
-      serve_assets      true
+      serve_assets      false
     end
 
     ##
