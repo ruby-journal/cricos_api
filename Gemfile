@@ -6,8 +6,9 @@ gem 'rake'
 gem 'lotusrb',     '0.5.0'
 gem 'lotus-model', '~> 0.5'
 
-
-gem 'pg'
+group :development do
+  gem 'sqlite3'
+end
 
 group :test do
   gem 'rspec'
@@ -16,4 +17,5 @@ end
 
 group :production do
   # gem 'puma'
+  gem 'pg'
 end
