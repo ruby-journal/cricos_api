@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'bundler/setup'
+require 'lotus/setup'
+require 'json'
+require_relative '../lib/cricos_api'
+
+if ARGV.count == 0
+  puts "Usage: import_institutions [instiutions.json]"
+else
+  ARGF.each_line do |e|
+    line = JSON.parse(e)
+
+    institution = InstitutionRepository.find_by_provider_code(line['provider_code']) ||
+                 Institution.new(provider_code: line['provider_code'])
+
+    institution.trading_name = line['trading_name']
+    institution.name = line['name']
+    institution.type = line['type']
+    institution.postal_address = line['postal_address']
+    institution.website = line['website']
+    institution.total_capacity = line['total_capacity']
+
+    institution = InstitutionRepository.persist(institution)
+
+    puts "#{institution.inspect}"
+  end
+end
