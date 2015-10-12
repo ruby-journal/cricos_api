@@ -8,7 +8,7 @@ Please be noted that this app is not affiliated with the government department w
 
 # Getting started
 
-Please run `./setup.sh`
+Please run `./scripts/setup`
 
 Start the server with command:
 
