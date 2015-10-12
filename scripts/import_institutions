@@ -15,6 +15,7 @@ else
     institution = InstitutionRepository.find_by_provider_code(line['provider_code']) ||
                  Institution.new(provider_code: line['provider_code'])
 
+    institution.provider_id = line['provider_id']
     institution.trading_name = line['trading_name']
     institution.name = line['name']
     institution.type = line['type']
@@ -24,6 +25,8 @@ else
 
     institution = InstitutionRepository.persist(institution)
 
-    puts "#{institution.inspect}"
+    unless institution.id.nil?
+      puts "#{institution.inspect}"
+    end
   end
 end
