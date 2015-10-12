@@ -2,7 +2,7 @@ Lotus::Model.migration do
   change do
     create_table :institutions do
       primary_key :id
-      String :provider_id, null: false, unique: true
+      Integer :provider_id, null: false, unique: true
       String :provider_code, null: false, unique: true
       String :trading_name
       String :name
