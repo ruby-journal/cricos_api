@@ -12,8 +12,7 @@ else
   ARGF.each_line do |e|
     line = JSON.parse(e)
 
-    institution = InstitutionRepository.find_by_provider_code(line['provider_code']) ||
-                 Institution.new(provider_code: line['provider_code'])
+    institution = InstitutionRepository.find_or_initialize_by_provider_code(line['provider_code'])
 
     institution.provider_id = line['provider_id']
     institution.trading_name = line['trading_name']
@@ -26,7 +25,16 @@ else
     institution = InstitutionRepository.persist(institution)
 
     unless institution.id.nil?
-      puts "#{institution.inspect}"
+      institution.locations = line['locations'].map do |lc|
+        location_id = lc['location_id']
+        location = LocationRepository.find_or_initialize_by_institution_id_and_location_id(institution.id, location_id)
+        location.name = lc['name']
+        location.state = lc['state']
+        location.number_of_courses = lc['number_of_courses']
+        LocationRepository.persist(location)
+      end
     end
+
+    puts "#{institution.inspect}"
   end
 end
