@@ -3,6 +3,7 @@ collection :institutions do
   repository InstitutionRepository
 
   attribute :id, Integer
+  attribute :provider_id, Integer
   attribute :provider_code, String
   attribute :trading_name, String
   attribute :name, String
