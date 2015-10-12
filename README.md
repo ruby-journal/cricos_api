@@ -4,7 +4,7 @@ CRICOS API is an attempt to provide a JSON API service for the CRICOS system (wh
 
 It is built to demonstrate the power of [Lotus Framework](http://lotusrb.org).
 
-Please be noted that this app is not affiliated with the government department who runs CRICOS. It does not ship with the CRICOS DB for legal reason. You can scrape the data with existing tools on the WWW.
+Please be noted that this app is not affiliated with the government department who runs CRICOS. It does not ship with the CRICOS DB for legal reason. You can scrape the data with existing [crisos_crape](https://github.com/ruby-journal/cricos_scrape.rb).
 
 # Getting started
 
