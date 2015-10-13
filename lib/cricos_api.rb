@@ -17,5 +17,5 @@ Lotus::Model.configure do
   ##
   # Database mapping
   #
-  Dir["#{ __dir__ }/config/mappers/*.rb"].each { |file| mapping file.to_s.gsub('.rb', '') }
+  mapping "#{ __dir__ }/config/mapping"
 end.load!
