@@ -33,8 +33,19 @@ else
         location.number_of_courses = lc['number_of_courses']
         LocationRepository.persist(location)
       end
+
+      institution.contact_officers = line['contact_officers'].map do |co|
+        contact_officer = ContactOfficerRepository.find_or_initialize_by_institution_id_and_name(institution.id, co['name'])
+        contact_officer.role = co['role']
+        contact_officer.title = co['title']
+        contact_officer.phone = co['phone']
+        contact_officer.fax = co['fax']
+        contact_officer.email = co['email']
+        ContactOfficerRepository.persist(contact_officer)
+      end
     end
 
-    puts "#{institution.inspect}"
+    puts institution.inspect
+
   end
 end
