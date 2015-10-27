@@ -3,12 +3,23 @@ source 'https://rubygems.org'
 gem 'bundler'
 gem 'rake'
 
-gem 'lotusrb',     '0.5.0'
-gem 'lotus-model', '~> 0.5'
+gem 'lotus-utils',       require: false, github: 'lotus/utils'
+gem 'lotus-router',      require: false, github: 'lotus/router'
+gem 'lotus-validations', require: false, github: 'lotus/validations'
+gem 'lotus-helpers',     require: false, github: 'lotus/helpers'
+gem 'lotus-controller',  require: false, github: 'lotus/controller'
+gem 'lotus-view',        require: false, github: 'lotus/view'
+gem 'lotus-model',       require: false, github: 'lotus/model'
+gem 'lotus-mailer',      require: false, github: 'lotus/mailer'
+gem 'lotusrb',                           github: 'lotus/lotus'
 
 group :test do
   gem 'rspec'
   gem 'capybara'
+end
+
+group :development, :test do
+  gem 'byebug'
 end
 
 gem 'pg'
