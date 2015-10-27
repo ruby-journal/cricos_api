@@ -13,6 +13,8 @@ gem 'lotus-model',       require: false, github: 'lotus/model'
 gem 'lotus-mailer',      require: false, github: 'lotus/mailer'
 gem 'lotusrb',                           github: 'lotus/lotus'
 
+gem 'jsonapi-serializers'
+
 group :test do
   gem 'rspec'
   gem 'capybara'
