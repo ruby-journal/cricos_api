@@ -10,6 +10,8 @@ class InstitutionSerializer
   attribute :total_capacity
   attribute :postal_address
   attribute :website
+
+  # TODO: how to define associations?
   attribute :locations
   attribute :contact_officers
 end
