@@ -17,6 +17,7 @@ module ApiV1
       #
       load_paths << [
         'controllers',
+        'serializers'
       ]
 
       # Handle exceptions with HTTP statuses (true) or don't catch them (false).
@@ -54,15 +55,17 @@ module ApiV1
       #
       # middleware.use Rack::Protection
 
+      controller.format json_api: 'application/vnd.api+json'
+
       # Default format for the requests that don't specify an HTTP_ACCEPT header
       # Argument: A symbol representation of a mime type, default to :html
       #
-      # default_request_format :html
+      default_request_format :json_api
 
       # Default format for responses that doesn't take into account the request format
       # Argument: A symbol representation of a mime type, default to :html
       #
-      default_response_format :json
+      default_response_format :json_api
 
       # HTTP Body parsers
       # Parse non GET responses body for a specific mime type
