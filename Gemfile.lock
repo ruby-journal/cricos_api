@@ -157,6 +157,7 @@ DEPENDENCIES
   lotus-view!
   lotusrb!
   pg
+  rack-test
   rake
   rspec
 
