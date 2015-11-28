@@ -2,7 +2,6 @@ import React from 'react'
 
 export default class Footer extends React.Component {
   render () {
-    const link = (<a href="http://purecss.io/" target="_blank">PureCSS</a>)
     return (
       <div className="footer">
         <div className="pure-g">

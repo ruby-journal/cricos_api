@@ -2,12 +2,11 @@
 import '../assets/stylesheets/index.css'
 
 import React, { PropTypes } from 'react'
-import { Redirect, Route } from 'react-router'
+import { Route } from 'react-router'
 import { ReduxRouter } from 'redux-router'
 import { connect } from 'react-redux'
 import configureStore from './utils/configure-store'
 import * as components from './components'
-import * as constants from './constants'
 
 const {
   About,
@@ -17,7 +16,7 @@ const {
 
 export const store = configureStore()
 
-function getRootChildren (props) {
+function getRootChildren () {
   const rootChildren = [
     <div key='Root'>
       {renderRoutes()}

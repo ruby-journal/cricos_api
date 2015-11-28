@@ -3,7 +3,7 @@ import createReducer from '../utils/create-reducer'
 
 const initialState = {
   indicator: null,
-  data: null,
+  institutions: null,
   error: null
 }
 
@@ -23,7 +23,7 @@ const actionHandlers = {
     })
   },
   [constants.HIDE_ERROR]: state => ({ ...state, ...{ error: null } }),
-  [constants.FETCH_DATA]: (state, action) => ({ data: action.data })
+  [constants.FETCH_DATA]: (state, action) => ({ institutions: action.institutions })
 }
 
 export default createReducer(initialState, actionHandlers)

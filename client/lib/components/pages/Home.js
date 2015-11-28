@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 
 import * as applicationActions from '../../actions/application'
 import SearchBox from './SearchBox'
+import SearchResult from './SearchResult'
 
 @connect(state => ({
   application: state.application
@@ -23,6 +24,7 @@ export default class Home extends React.Component {
         </div>
         <div className="content">
           <SearchBox {...this.props} />
+          <SearchResult {...this.props} />
         </div>
       </div>
     )

@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react'
-import shallowEqual from 'react-redux/lib/utils/shallowEqual'
+// import shallowEqual from 'react-redux/lib/utils/shallowEqual'
 import { findDOMNode } from 'react-dom'
 
 export default class SearchBox extends React.Component {
-  static contextTypes = {
-    history: PropTypes.object.isRequired
+  static propTypes = {
+    history: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
   }
 
   constructor (props) {
@@ -21,9 +22,6 @@ export default class SearchBox extends React.Component {
   }
 
   render () {
-
-    console.log('this.props', this.props)
-
     return (
       <div className="content">
         <form className="explore pure-form" onSubmit={e => e.preventDefault()}>
