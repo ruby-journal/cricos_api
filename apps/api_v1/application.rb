@@ -106,7 +106,7 @@ module ApiV1
       # Enabling serving assets
       # Defaults to false
       #
-      # serve_assets false
+      serve_assets false
 
       ##
       # FRAMEWORKS
@@ -128,9 +128,6 @@ module ApiV1
     configure :development do
       # Don't handle exceptions, render the stack trace
       handle_exceptions false
-
-      # Serve static assets during development
-      serve_assets      false
     end
 
     ##
@@ -139,9 +136,6 @@ module ApiV1
     configure :test do
       # Don't handle exceptions, render the stack trace
       handle_exceptions false
-
-      # Serve static assets during development
-      serve_assets      false
     end
 
     ##
