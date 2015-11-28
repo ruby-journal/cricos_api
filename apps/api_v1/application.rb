@@ -109,56 +109,6 @@ module ApiV1
       # serve_assets false
 
       ##
-      # SECURITY
-      #
-
-      # X-Frame-Options is a HTTP header supported by modern browsers.
-      # It determines if a web page can or cannot be included via <frame> and
-      # <iframe> tags by untrusted domains.
-      #
-      # Web applications can send this header to prevent Clickjacking attacks.
-      #
-      # Read more at:
-      #
-      #   * https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options
-      #   * https://www.owasp.org/index.php/Clickjacking
-      #
-      security.x_frame_options "DENY"
-
-      # Content-Security-Policy (CSP) is a HTTP header supported by modern browsers.
-      # It determines trusted sources of execution for dynamic contents
-      # (JavaScript) or other web related assets: stylesheets, images, fonts,
-      # plugins, etc.
-      #
-      # Web applications can send this header to mitigate Cross Site Scripting
-      # (XSS) attacks.
-      #
-      # The default value allows images, scripts, AJAX, fonts and CSS from the same
-      # origin, and does not allow any other resources to load (eg object,
-      # frame, media, etc).
-      #
-      # Inline JavaScript is NOT allowed. To enable it, please use:
-      # "script-src 'unsafe-inline'".
-      #
-      # Content Security Policy introduction:
-      #
-      #  * http://www.html5rocks.com/en/tutorials/security/content-security-policy/
-      #  * https://www.owasp.org/index.php/Content_Security_Policy
-      #  * https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29
-      #
-      # Inline and eval JavaScript risks:
-      #
-      #   * http://www.html5rocks.com/en/tutorials/security/content-security-policy/#inline-code-considered-harmful
-      #   * http://www.html5rocks.com/en/tutorials/security/content-security-policy/#eval-too
-      #
-      # Content Security Policy usage:
-      #
-      #  * http://content-security-policy.com/
-      #  * https://developer.mozilla.org/en-US/docs/Web/Security/CSP/Using_Content_Security_Policy
-      #
-      security.content_security_policy "default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self'; font-src 'self';"
-
-      ##
       # FRAMEWORKS
       #
 
@@ -167,7 +117,6 @@ module ApiV1
       #
       # See: http://www.rubydoc.info/gems/lotus-controller#Configuration
       controller.prepare do
-        accept :json
         # include MyAuthentication # included in all the actions
         # before :authenticate!    # run an authentication before callback
       end
