@@ -2,8 +2,12 @@ module ApiV1::Controllers::Institutions
   class Index
     include ApiV1::Action
 
+    def initialize(repository: InstitutionRepository)
+      @repository = repository
+    end
+
     def call(params)
-      @institutions = InstitutionRepository.all
+      @institutions = @repository.all
       self.body = serialized_institutions
     end
 

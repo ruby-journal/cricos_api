@@ -16,5 +16,6 @@ RSpec.describe '/institutions', type: :api_v1 do
 
     expect(response.status).to eq(200)
     expect(response.body).to eq(@body)
+    expect(response.headers['Content-Type']).to match('application/vnd.api+json; charset=utf-8')
   end
 end

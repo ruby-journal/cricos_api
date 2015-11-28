@@ -155,6 +155,7 @@ module ApiV1
       #
       # See: http://www.rubydoc.info/gems/lotus-controller#Configuration
       controller.prepare do
+        accept :json
         # include MyAuthentication # included in all the actions
         # before :authenticate!    # run an authentication before callback
       end
