@@ -34,4 +34,11 @@ RSpec.describe ApiV1::Controllers::Institutions::Index do
     expect(response[0]).to eq(406)
     expect(response[2]).to eq(["Not Acceptable"])
   end
+
+  it "allow CORS" do
+    response = action.call({})
+
+    expect(response[1]['Access-Control-Allow-Origin']).to eq('*')
+    expect(response[1]['Access-Control-Allow-Methods']).to eq('GET,HEAD,PUT,PATCH,POST,DELETE')
+  end
 end
