@@ -8,9 +8,6 @@ module ApiV1::Controllers::Institutions
 
     def call(params)
       @institutions = @repository.all
-      self.headers['Access-Control-Allow-Origin'] = '*'
-      self.headers['Access-Control-Allow-Methods'] = 'GET,HEAD,PUT,PATCH,POST,DELETE'
-
       self.body = serialized_institutions
     end
 

@@ -1,4 +1,5 @@
 require 'lotus/helpers'
+require 'rack/cors'
 
 module ApiV1
   class Application < Lotus::Application
@@ -54,6 +55,13 @@ module ApiV1
       # Configure Rack middleware for this application
       #
       # middleware.use Rack::Protection
+
+      middleware.use Rack::Cors do
+        allow do
+          origins '*'
+          resource '*', :headers => :any, :methods => [:get, :post, :options]
+        end
+      end
 
       controller.format json_api: 'application/vnd.api+json'
 

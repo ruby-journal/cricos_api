@@ -14,6 +14,7 @@ gem 'lotus-view',        require: false, github: 'lotus/view'
 gem 'lotus-model',       require: false, github: 'lotus/model'
 gem 'lotus-mailer',      require: false, github: 'lotus/mailer'
 gem 'lotusrb',                           github: 'lotus/lotus'
+gem 'rack-cors'
 
 gem 'jsonapi-serializers'
 
