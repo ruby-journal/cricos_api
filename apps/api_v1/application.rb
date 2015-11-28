@@ -60,10 +60,10 @@ module ApiV1
         allow do
           origins '*'
           resource '*',
-            :headers => :any,
-            :methods => [:get, :post, :options],
-            :credentials => true,
-            :max_age => 0
+            headers: :any,
+            methods: [:get, :post, :options],
+            credentials: true,
+            max_age: 0
         end
       end
 
