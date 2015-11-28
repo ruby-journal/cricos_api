@@ -59,7 +59,11 @@ module ApiV1
       middleware.use Rack::Cors do
         allow do
           origins '*'
-          resource '*', :headers => :any, :methods => [:get, :post, :options]
+          resource '*',
+            :headers => :any,
+            :methods => [:get, :post, :options],
+            :credentials => true,
+            :max_age => 0
         end
       end
 
