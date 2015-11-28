@@ -11,25 +11,11 @@ export default class Application extends React.Component {
 
   constructor (props, context) {
     super(props, context)
-
-    this.handleMenuClick = this.handleMenuClick.bind(this)
-
-    this.state = {
-      isMenuActive: false
-    }
-  }
-
-  handleMenuClick (evt) {
-    evt.preventDefault()
-    this.setState({ isMenuActive: !this.state.isMenuActive })
   }
 
   render () {
-    const { isMenuActive } = this.state
-    const activeClass = isMenuActive ? 'active' : ''
-
     return (
-      <div id="layout" className={activeClass}>
+      <div id="layout">
 
         <div id="main">
           <DisplayError />

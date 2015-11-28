@@ -52,8 +52,6 @@ a:visited { color: #265778; }
 /* scaffolding */
 :--layout { position: relative; padding-left: 0; }
 :--layout, #menu, .menu-link { transition: all 0.2s ease-out; }
-:--layout.active .menu-link { left: 160px; }
-:--layout.active #menu { left: 160px; width: 160px; }
 
 :--menu { margin-left: -160px; width: 160px; position: fixed; top: 0; left: 0;
   bottom: 0; z-index: 1000; overflow-y: auto; -webkit-overflow-scrolling: touch;
@@ -130,7 +128,7 @@ a:visited { color: #265778; }
 }
 
 @media (--viewport-medium) {
-  :--layout { padding-left: 160px; left: 0; }
+  :--layout { padding-left: 0; left: 0; }
   :--menu { left: 160px; }
   .menu-link { position: fixed; left: 160px; display: none; }
   .error-message { margin-left: 0; }

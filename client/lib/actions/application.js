@@ -3,7 +3,7 @@ import handleActionError from '../utils/handle-action-error'
 import * as constants from '../constants'
 
 // http://localhost:2300/api/v1/institutions
-const API = 'http://localhost:2300/api/v1/'
+const API = 'http://localhost:2300/api/v1'
 
 export function fetchData (options = {}) {
   return dispatch => {
