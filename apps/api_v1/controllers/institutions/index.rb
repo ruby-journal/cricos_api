@@ -10,7 +10,11 @@ module ApiV1::Controllers::Institutions
     private
 
     def serialized_institutions
-      JSONAPI::Serializer.serialize(@institutions, is_collection: true)
+      JSON.dump(
+        JSONAPI::Serializer.serialize(
+          @institutions, is_collection: true
+        )
+      )
     end
   end
 end
