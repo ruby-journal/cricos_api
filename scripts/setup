@@ -36,9 +36,8 @@ echo "Prepare DB .."
 
 bundle exec lotus db prepare
 
-echo "If you want to import data,"
-echo "please place dumped institutions.json into db/data"
-echo "then run"
-echo "./scripts/import_institutions db/data/institutions.json"
+echo "Import data .."
+
+./scripts/import_institutions db/data/institutions.json
 
 echo "DONE"
