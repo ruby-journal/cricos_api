@@ -1,32 +1,37 @@
-# CRICOS API
+# Crikey! It's a new CRICOS app!
 
-CRICOS API is an attempt to provide a JSON API service for the CRICOS system (which does not offer API interface).
+Crikey is an attempt to provide a JSON API service for the CRICOS system (which does not offer API interface).
 
-It is built to demonstrate the power of [Lotus Framework](http://lotusrb.org).
+It is built to demonstrate the power of [Lotus Framework](http://lotusrb.org) on API side and NodeJS/ReactJS on the client side.
 
 Please be noted that this app is not affiliated with the government department who runs CRICOS. It does not ship with the CRICOS DB for legal reason. You can scrape the data with existing [crisos_crape](https://github.com/ruby-journal/cricos_scrape.rb).
 
+# Prerequisites
+
+* Ruby 2.2.3 or newer
+* NodeJS 4.2.1 or newer
+* PostgresSQL 9.1 or newer
+
+# Architecture
+
+The app is split into 2 apps.
+
+* The API app is written with Lotus
+* The web client app is written with ReactJS using NodeJS stack (located under `client` folder)
+
 # Getting started
 
-Please run `./scripts/setup`
+## JSON API app
 
-Start the server with command:
+Please see README.md in `server`
 
-```
-bundle exec lotus server
-```
+## Web Client app
 
-# Testing
-
-Automated tests can be run with:
-
-```
-bundle exec rake spec
-```
+Please see README.md in `client`
 
 # Copyright
 
-2015 (c) Trung Lê
+2015 (c) Trung Lê & friends
 
 # License
 

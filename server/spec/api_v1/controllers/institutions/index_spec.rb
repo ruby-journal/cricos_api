@@ -22,21 +22,21 @@ RSpec.describe ApiV1::Controllers::Institutions::Index do
   end
 
   it 'considers */* requests as JSON' do
-    response = action.call({'HTTP_ACCEPT' => '*/*'})
+    response = action.call({ 'HTTP_ACCEPT' => '*/*' })
 
     expect(response[0]).to eq(200)
     expect(response[1]['Content-Type']).to match('application/vnd.api+json; charset=utf-8')
   end
 
-  it "rejects text/xml requests" do
-    response = action.call({"HTTP_ACCEPT" => "text/xml"})
+  it 'rejects text/xml requests' do
+    response = action.call({ 'HTTP_ACCEPT' => 'text/xml' })
 
     expect(response[0]).to eq(406)
-    expect(response[2]).to eq(["Not Acceptable"])
+    expect(response[2]).to eq(['Not Acceptable'])
   end
 
-  it "allow CORS" do
-    response = action.call({})
+  it 'allow CORS' do
+    response = action.call({ 'HTTP_ORIGIN' => '*', 'REQUEST_METHOD' => 'OPTIONS' })
 
     expect(response[1]['Access-Control-Allow-Origin']).to eq('*')
     expect(response[1]['Access-Control-Allow-Methods']).to eq('GET,HEAD,PUT,PATCH,POST,DELETE')
