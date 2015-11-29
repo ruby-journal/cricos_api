@@ -11,7 +11,9 @@ import * as components from './components'
 const {
   About,
   Application,
-  Home
+  Home,
+  Institutions,
+  Institution
 } = components
 
 export const store = configureStore()
@@ -37,6 +39,8 @@ function renderRoutes () {
       <Route component={Application}>
         <Route path="/" component={Home} />
         <Route path="about" component={About} />
+        <Route path="institutions" component={Institutions} />
+        <Route path='institution/:id' component={Institution} />
       </Route>
     </ReduxRouter>
   )
