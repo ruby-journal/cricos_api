@@ -7,7 +7,7 @@ require 'json'
 require_relative '../lib/cricos_api'
 
 if ARGV.count == 0
-  puts "Usage: import_institutions [instiutions.json]"
+  puts "Usage: import_institutions [institution.json]"
 else
   ARGF.each_line do |e|
     line = JSON.parse(e)
