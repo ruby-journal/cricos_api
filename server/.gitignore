@@ -1,4 +1,8 @@
 .bundle
 .DS_Store
 .env.development
+<<<<<<< 9394a7e103c8edb5290b98269b7bc60442ebb417:server/.gitignore
 .env.test
+=======
+node_modules
+>>>>>>> add script to fetch logos:.gitignore
