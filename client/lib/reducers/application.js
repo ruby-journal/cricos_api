@@ -23,7 +23,9 @@ const actionHandlers = {
     })
   },
   [constants.HIDE_ERROR]: state => ({ ...state, ...{ error: null } }),
-  [constants.FETCH_DATA]: (state, action) => ({ institutions: action.institutions })
+  [constants.FETCH_DATA]: (state, action) => (
+    { institutions: action.institutions }
+  )
 }
 
 export default createReducer(initialState, actionHandlers)
