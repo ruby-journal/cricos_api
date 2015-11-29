@@ -6,6 +6,32 @@ echo "Bundling .."
 
 bundle install -j4
 
+echo "Setup env .."
+
+
+
+if [ ! -f .env.development ]; then
+  cp .env.development.example .env.development
+  echo "Please edit CRICOS_API_DATABASE_URL var in .env.development and re-run setup script"
+  exit 1
+fi
+
+if grep -Fq "# CRICOS_API_DATABASE_URL" .env.development; then
+  echo "Please uncomment and edit credentials in CRICOS_API_DATABASE_URL in .env.development"
+  exit 1
+fi
+
+if [ ! -f .env.test ]; then
+  cp .env.test.example .env.test
+  echo "Please edit CRICOS_API_DATABASE_URL var in .env.test and re-run setup script"
+  exit 1
+fi
+
+if grep -Fq "# CRICOS_API_DATABASE_URL" .env.test; then
+  echo "Please uncomment and edit credentials in CRICOS_API_DATABASE_URL in .env.test"
+  exit 1
+fi
+
 echo "Prepare DB .."
 
 bundle exec lotus db prepare
